@@ -9,5 +9,4 @@ class Element:
         return self._num
 
     def __lt__(self, other):
-        #print(other.e.get())
         return self._num < other._num
