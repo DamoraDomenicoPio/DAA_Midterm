@@ -61,18 +61,15 @@ class DirectoryTree(Tree):
     """Return the total number of elements in the alberi."""
     return self._size
 
-  #TODO
   def num_children(self, p):
     node=self._validate(p)
     return len(node._children)
 
-  #DA TESTARE
   def children(self, p):
     node=self._validate(p)
     for i in range(0,self.num_children(p)):
       yield self._make_position(node._children[i])
- 
-  #DA TESTARE
+
   def index_children(self,p,i):
     node=self._validate(p)
     if(i not in range(0,self.num_children(p))):
@@ -90,12 +87,10 @@ class DirectoryTree(Tree):
     node=self._validate(p)
     self._size+=1
     i=0
-    ###
     newchild=self._Node(e,node)
     if(len(node._children)==0):
       node._children.append(newchild)
       return self._make_position(newchild)
-    ###
     numChild=self.num_children(p)
     while i < numChild and e > node._children[i]._element:
       i+=1
@@ -112,10 +107,6 @@ class DirectoryTree(Tree):
     old = node._element
     node._element = e
     return old
-
-  #DA ELIMINARE
-  def _delete(self,p):
-    pass
 
 
 
