@@ -1,4 +1,4 @@
-def Element:
+class Element:
     pass
 
 class WebSite:
