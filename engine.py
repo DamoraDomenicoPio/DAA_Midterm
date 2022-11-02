@@ -1,15 +1,31 @@
-class Element:
-    pass
+from directorytreemap import DirectoryTreeMap
 
-class WebSite:
+class Element:
+    __slots__='_page','_content'
+
+    def __init__(self, page=False, content=None):
+        self._page=page
+        if(page):
+            self._content=content
+
+    def getPage(self):
+        return self._page
+    
+    def getContent(self):
+        return self._content
+
+
+class WebSite(DirectoryTreeMap):
+    __slots__='_host','_homepage'
 
     def __init__(self, host):
-        pass
+       self._host=host
 
     def __isDir(self, elem):
         pass
 
     def __isPage(self, elem):
+        pass
 
     def __hasDir(self, ndir, cdir):
         pass
