@@ -1,6 +1,7 @@
-import Element
+def Element:
+    pass
 
-class WebSite:
+def WebSite:
 
     def __init__(self, host):
         pass
@@ -9,7 +10,6 @@ class WebSite:
         pass
 
     def __isPage(self, elem):
-        pass
 
     def __hasDir(self, ndir, cdir):
         pass
@@ -35,7 +35,7 @@ class WebSite:
     def getSiteFromPage(self, page):
         pass
 
-class InvertedIndes:
+def InvertedIndes:
 
     def __init__(self):
         pass
@@ -49,7 +49,7 @@ class InvertedIndes:
     def getList(self, keyword):
         pass
 
-class SearchEngine:
+def SearchEngine:
 
     def __init__(self, namedir):
         pass
