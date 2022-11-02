@@ -112,7 +112,7 @@ class DirectoryTree(Tree):
   def _delete(self,p):
     pass
   #aggiunta
-
+# ciao 
 
 
 
