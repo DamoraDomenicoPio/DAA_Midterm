@@ -111,6 +111,7 @@ class DirectoryTree(Tree):
   #DA ELIMINARE
   def _delete(self,p):
     pass
+  #aggiunta
 
 
 
