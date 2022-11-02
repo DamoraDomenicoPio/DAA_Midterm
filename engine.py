@@ -22,10 +22,10 @@ class WebSite(DirectoryTreeMap):
        self._host=host
 
     def __isDir(self, elem):
-        pass
+        return elem.getPage()==False
 
     def __isPage(self, elem):
-        pass
+        return elem.getPage()==True
 
     def __hasDir(self, ndir, cdir):
         pass
