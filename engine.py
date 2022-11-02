@@ -1,7 +1,7 @@
 def Element:
     pass
 
-def WebSite:
+class WebSite:
 
     def __init__(self, host):
         pass
