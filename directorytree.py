@@ -63,18 +63,21 @@ class DirectoryTree(Tree):
 
   #TODO
   def num_children(self, p):
-    return len(p._node._children)
+    node=self._validate(p)
+    return len(node._children)
 
   #DA TESTARE
   def children(self, p):
-    for i in self.num_children(p):
-      yield self._make_position(p._node._children[i])
+    node=self._validate(p)
+    for i in range(0,self.num_children(p)):
+      yield self._make_position(node._children[i])
  
   #DA TESTARE
   def index_children(self,p,i):
+    node=self._validate(p)
     if(i not in range(0,self.num_children(p))):
       raise ValueError('Out of bound')
-    return self.make_position(self.children[i]) 
+    return self._make_position(node._children[i]) 
 
   def _add_root(self,e):
     if self._root is not None:
@@ -88,18 +91,20 @@ class DirectoryTree(Tree):
     self._size+=1
     i=0
     ###
-    newchild=self._make_position(self._Node(e))
+    newchild=self._Node(e,node)
     if(len(node._children)==0):
       node._children.append(newchild)
-      return
+      return self._make_position(newchild)
     ###
-    while e < self.children(p):
+    numChild=self.num_children(p)
+    while i < numChild and e > node._children[i]._element:
       i+=1
-    node._children[self.num_children(p)]= self._Node(e)  
-    for j in range(self.num_children(p)-1,i+1,-1):
+    node._children.append(newchild)
+    for j in range(numChild,i,-1):
       temp= node._children[j]
       node._children[j]=node._children[j-1]
       node._children[j-1]=temp
+    return self._make_position(newchild)
 
   def _replace(self,p,e):
     """Replace the element at position p with e, and return old element."""
@@ -111,8 +116,6 @@ class DirectoryTree(Tree):
   #DA ELIMINARE
   def _delete(self,p):
     pass
-  #aggiunta
-# ciao 
 
 
 
