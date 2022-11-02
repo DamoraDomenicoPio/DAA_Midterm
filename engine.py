@@ -1,10 +1,11 @@
 from directorytreemap import DirectoryTreeMap
 
 class Element:
-    __slots__='_page','_content'
+    __slots__='_page','_content','_url'
 
-    def __init__(self, page=False, content=None):
+    def __init__(self, url, page=False, content=None):
         self._page=page
+        self._url=url
         if(page):
             self._content=content
 
@@ -45,13 +46,14 @@ class WebSite(DirectoryTreeMap):
         pass
 
     def getHomePage(self):
-        pass
+        return self._homepage
 
     def getSiteString(self):
         pass
 
     def insertPage(self, url, content):
-        pass
+        e=Element(True,content)
+
 
     def getSiteFromPage(self, page):
         pass
