@@ -15,14 +15,14 @@ class DirectoryTreeMap(DirectoryTree,MapBase):
 
     #------------------------------- nonpublic utilities -------------------------------
     def _dicotomic_search(self,p,k,i,f):
-        m=(i+f)/2
+        m=int((i+f)/2)
         if(f<i):
             return p
         if(k.startswith(self.index_children(p,m).key())):
             return self.index_children(p,m)
-        if(k<self.index_children(p,m)):
+        if(k<self.index_children(p,m).key()):
             return self._dicotomic_search(p,k,i,m-1)
-        if(k>self.index_children(p,m)):
+        if(k>self.index_children(p,m).key()):
             return self._dicotomic_search(p,k,m+1,f)
         
     def _subtree_search(self, p, k):
