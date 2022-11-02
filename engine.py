@@ -16,10 +16,13 @@ class Element:
 
 
 class WebSite(DirectoryTreeMap):
-    __slots__='_host','_homepage'
+    __slots__='_host','_homepage','_root','_homedirectory'
 
     def __init__(self, host):
        self._host=host
+       self._root=DirectoryTreeMap()
+       self._homedirectory=Element()
+       self._root._add_root(self._homedirectory)
 
     def __isDir(self, elem):
         return elem.getPage()==False
@@ -28,7 +31,9 @@ class WebSite(DirectoryTreeMap):
         return elem.getPage()==True
 
     def __hasDir(self, ndir, cdir):
-        pass
+        if(self.__isDir(cdir)==False):
+            raise('cdir is not a directory')
+        
 
     def __newDir(self, ndir, cdir):
         pass
