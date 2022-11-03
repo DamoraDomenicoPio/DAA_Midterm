@@ -34,7 +34,14 @@ class DirectoryTreeMap(DirectoryTree,MapBase):
             if child!=p:
                 return self._subtree_search(child,k)
         return p
-        #attenzione devi lavorare sulle position devi mettere la make position 
+        #attenzione devi lavorare sulle position devi mettere la make position
+
+    def children_search(self,p,k):
+        return self._dicotomic_search(p,k,0,self.num_children(p)-1)
+    
+    def set_child(self,p,k,v):
+        item = self._Item(k,v)
+        return self._add_child(p,item)
     
     def find_position(self,k):
         if self.is_empty():
@@ -69,3 +76,7 @@ class DirectoryTreeMap(DirectoryTree,MapBase):
     def __delitem__(self,p):
         pass
 
+    # def print_subtree(self,p,level):
+    #     print('---'*level+p.key())
+    #     for child in self.children(p):
+    #         self.print_subtree(child,level+1)
