@@ -42,7 +42,13 @@ class WebSite(DirectoryTreeMap):
         pass
 
     def __newPage(self, npag, cdir):
+        # if not cdir._isDir: # Se cdir non è una directory lancia un eccezione 
+        #     #lancia l'eccezione 
+        #     return
+        # self.
         pass
+
+
 
     def getHomePage(self):
         pass
@@ -77,3 +83,12 @@ def SearchEngine:
 
     def search(self, keyword, k):
         pass
+
+
+
+
+
+
+
+
+
