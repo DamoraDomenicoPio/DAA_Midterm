@@ -49,18 +49,28 @@ class WebSite(DirectoryTreeMap):
         positionChild=self._dicotomic_search(positionCurrent,ndir,0,numChild)
         if nameCompleteNdir==positionChild.key() and self.__isDir(positionChild.element()):
             return positionChild.element()
-        elif(self.__isDir(positionChild.element())):
+        elif(self.__isDir(positionChild.element())==False):
             raise('ndir in not a directory')
         else:
             raise('ndir does not exists')
-
 
 
     def __newDir(self, ndir, cdir):
         pass
 
     def __hasPage(self, npag, cdir):
-        pass
+        if(self.__isDir(cdir)==False):
+            raise('cdir is not a directory')
+        nameCompleteNpag=cdir.getUrl()+npag
+        positionCurrent=cdir._getPosition()
+        numChild=self._root.num_children(positionCurrent)
+        positionChild=self._dicotomic_search(positionCurrent,npag,0,numChild)
+        if nameCompleteNpag==positionChild.key() and self.__isPage(positionChild.element()):
+            return positionChild.element()
+        elif(self.__isPage(positionChild.element())):
+            raise('npag in not a page')
+        else:
+            raise('npag does not exists')
 
     def __newPage(self, npag, cdir):
         pass
