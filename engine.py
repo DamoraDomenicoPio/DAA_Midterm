@@ -151,7 +151,7 @@ class WebSite(DirectoryTreeMap):
     def getSiteFromPage(self, page):
         pass
 
-class InvertedIndes:
+class InvertedIndex:
 
     def __init__(self):
         pass
