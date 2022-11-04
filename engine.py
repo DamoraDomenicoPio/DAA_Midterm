@@ -9,23 +9,25 @@ class Element():
     def setKey(self, url):
         self._position._key=url
 
-    def setValue(self, name, type, content=None):
+    def setValue(self, name, type, website=None,content=None):
         self._position.value()[0]=name
         self._position.value()[1]=type
+        if(website!=None):
+            self.setWebSite(website)
         self.setContent(content)
 
     def setContent(self, content):
-        if len(self._position.value()) <= 2:
+        if len(self._position.value()) <= 3:
             self._position.value().append(content)
         else:
-            self._position.value()[2]=content
+            self._position.value()[3]=content
 
     def getUrl(self):
         return self._position.key()
 
     def getContent(self):
         if self.getType():
-            return self._position.value()[2]
+            return self._position.value()[3]
         else:
             raise ValueError('is not a page!')
 
@@ -34,6 +36,14 @@ class Element():
 
     def getName(self):
         return self._position.value()[0]
+
+    #
+    def getWebSite(self):
+        return self._position.value()[2]
+
+    def setWebSite(self, website):
+        self._position.value()[2]=website
+    #
 
 
 class WebSite(DirectoryTreeMap):
@@ -102,7 +112,7 @@ class WebSite(DirectoryTreeMap):
             e=Element(p)
             #TODO
             e.setKey(npag)
-            e.setValue(name, True)
+            e.setValue(name, True, self)
             if name=='index.html' and self.parent(cdir._position)==None:
                 self._homepage=e
             return e
@@ -148,8 +158,9 @@ class WebSite(DirectoryTreeMap):
         return e
 
     #TODO
-    def getSiteFromPage(self, page):
-        pass
+    def getSiteFromPage(page):
+        return page.getWebSite()
+        
 
 class InvertedIndex:
 
