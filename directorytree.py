@@ -1,6 +1,5 @@
 from TdP_collections.tree.tree import Tree
 from TdP_collections.map.map_base import MapBase
-#import numpy as np
 
 
 
