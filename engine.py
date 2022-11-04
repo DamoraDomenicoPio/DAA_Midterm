@@ -94,13 +94,6 @@ class WebSite(DirectoryTreeMap):
             raise TypeError(npag,'is a directory')
 
     def __newPage(self, npag, cdir):
-<<<<<<< HEAD
-        # if not cdir._isDir: # Se cdir non è una directory lancia un eccezione 
-        #     #lancia l'eccezione 
-        #     return
-        # self.
-        pass
-=======
         try:
             return self.__hasPage(npag, cdir)
         except KeyError:
@@ -113,7 +106,6 @@ class WebSite(DirectoryTreeMap):
             if name=='index.html' and self.parent(cdir._position)==None:
                 self._homepage=e
             return e
->>>>>>> 16293c68fa9237e4e96450b58e22744a11d0fd6b
 
 
 
