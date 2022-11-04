@@ -70,6 +70,8 @@ class DirectoryTree(Tree):
     for i in range(0,self.num_children(p)):
       yield self._make_position(node._children[i])
 
+  # ---- Nuovi metodi ----
+
   def index_children(self,p,i):
     node=self._validate(p)
     if(i not in range(0,self.num_children(p))):
@@ -91,6 +93,7 @@ class DirectoryTree(Tree):
     if(len(node._children)==0):
       node._children.append(newchild)
       return self._make_position(newchild)
+    # Inserimento in order
     numChild=self.num_children(p)
     while i < numChild and e > node._children[i]._element:
       i+=1
