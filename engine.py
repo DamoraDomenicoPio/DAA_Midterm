@@ -120,6 +120,7 @@ class WebSite(DirectoryTreeMap):
         for child in self.children(p):
             self._print_subtree(child,level+1)
 
+    #TODO: controllare complessità
     def insertPage(self, url, content):
         urlSplit=url.split('/')
         name=urlSplit[0]+'/'
